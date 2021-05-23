@@ -124,6 +124,11 @@ public class Menu extends javax.swing.JFrame {
         logout.setBackground(new java.awt.Color(255, 255, 255));
         logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/baseline_logout_black_24dp.png"))); // NOI18N
         logout.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        logout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutActionPerformed(evt);
+            }
+        });
 
         back.setBackground(new java.awt.Color(255, 255, 255));
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/baseline_arrow_back_black_24dp.png"))); // NOI18N
@@ -239,6 +244,13 @@ public class Menu extends javax.swing.JFrame {
         records r = new records();
         changePanel(r);
     }//GEN-LAST:event_recActionPerformed
+
+    private void logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutActionPerformed
+        // TODO add your handling code here:
+        Welcome w = new Welcome();
+        w.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_logoutActionPerformed
 
     /**
      * @param args the command line arguments

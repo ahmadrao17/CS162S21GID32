@@ -83,6 +83,11 @@ public class Welcome extends javax.swing.JFrame {
         viewPass.setBackground(new java.awt.Color(150, 100, 50));
         viewPass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/baseline_visibility_black_18dp.png"))); // NOI18N
         viewPass.setBorder(null);
+        viewPass.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                viewPassStateChanged(evt);
+            }
+        });
         viewPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 viewPassActionPerformed(evt);
@@ -92,6 +97,11 @@ public class Welcome extends javax.swing.JFrame {
         login.setBackground(new java.awt.Color(150, 100, 50));
         login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/baseline_login_black_24dp.png"))); // NOI18N
         login.setBorder(null);
+        login.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginActionPerformed(evt);
+            }
+        });
 
         forgetPass.setBackground(new java.awt.Color(255, 255, 255));
         forgetPass.setText("Forget Password");
@@ -220,7 +230,23 @@ public class Welcome extends javax.swing.JFrame {
 
     private void viewPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewPassActionPerformed
         // TODO add your handling code here: 
+        
     }//GEN-LAST:event_viewPassActionPerformed
+
+    private void loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginActionPerformed
+        // TODO add your handling code here:
+        Menu m = new Menu();
+        m.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_loginActionPerformed
+
+    private void viewPassStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_viewPassStateChanged
+        // TODO add your handling code here:
+        if(viewPass.isEnabled())
+        {
+            pass.setEchoChar((char)0);
+        }
+    }//GEN-LAST:event_viewPassStateChanged
 
     /**
      * @param args the command line arguments

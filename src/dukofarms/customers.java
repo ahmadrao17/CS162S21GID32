@@ -85,6 +85,11 @@ public class customers extends javax.swing.JPanel {
         add.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/baseline_control_point_black_24dp.png"))); // NOI18N
         add.setText("Add new customers");
         add.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addActionPerformed(evt);
+            }
+        });
 
         jTable3.setBackground(new java.awt.Color(150, 100, 50));
         jTable3.setForeground(new java.awt.Color(150, 100, 50));
@@ -169,6 +174,12 @@ public class customers extends javax.swing.JPanel {
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
+        // TODO add your handling code here:
+        addCustomer ac = new addCustomer();
+        ac.setVisible(true);
+    }//GEN-LAST:event_addActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

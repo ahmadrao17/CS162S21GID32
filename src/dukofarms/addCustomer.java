@@ -53,6 +53,11 @@ public class addCustomer extends javax.swing.JFrame {
         add.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/baseline_control_point_black_24dp.png"))); // NOI18N
         add.setText("Add");
         add.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addActionPerformed(evt);
+            }
+        });
 
         jTextField2.setBackground(new java.awt.Color(150, 100, 50));
         jTextField2.setForeground(new java.awt.Color(255, 255, 255));
@@ -187,6 +192,11 @@ public class addCustomer extends javax.swing.JFrame {
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField7ActionPerformed
+
+    private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
+        // TODO add your handling code here:
+        this.setVisible(false);
+    }//GEN-LAST:event_addActionPerformed
 
     /**
      * @param args the command line arguments
