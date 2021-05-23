@@ -24,6 +24,7 @@ public class Menu extends javax.swing.JFrame {
         mil.setOpaque(false);
         rec.setOpaque(false);
         logout.setOpaque(false);
+        back.setOpaque(false);
         MainPanel p = new MainPanel();
         changePanel(p);
     }
@@ -52,6 +53,7 @@ public class Menu extends javax.swing.JFrame {
         mil = new javax.swing.JButton();
         rec = new javax.swing.JButton();
         logout = new javax.swing.JButton();
+        back = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLayeredPane2 = new javax.swing.JLayeredPane();
         jPanel4 = new javax.swing.JPanel();
@@ -69,6 +71,11 @@ public class Menu extends javax.swing.JFrame {
         anima.setText("Animals ");
         anima.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         anima.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        anima.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                animaActionPerformed(evt);
+            }
+        });
 
         cus.setBackground(new java.awt.Color(255, 255, 255));
         cus.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -86,6 +93,11 @@ public class Menu extends javax.swing.JFrame {
         emp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-name-tag-50.png"))); // NOI18N
         emp.setText("Employees ");
         emp.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        emp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                empActionPerformed(evt);
+            }
+        });
 
         mil.setBackground(new java.awt.Color(255, 255, 255));
         mil.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -103,10 +115,24 @@ public class Menu extends javax.swing.JFrame {
         rec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-journal-50.png"))); // NOI18N
         rec.setText("Records ");
         rec.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        rec.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                recActionPerformed(evt);
+            }
+        });
 
         logout.setBackground(new java.awt.Color(255, 255, 255));
         logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/baseline_logout_black_24dp.png"))); // NOI18N
         logout.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        back.setBackground(new java.awt.Color(255, 255, 255));
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/baseline_arrow_back_black_24dp.png"))); // NOI18N
+        back.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -117,6 +143,8 @@ public class Menu extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)
+                        .addComponent(back, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -141,7 +169,9 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(rec, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(logout, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(logout, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addComponent(back, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
@@ -176,11 +206,39 @@ public class Menu extends javax.swing.JFrame {
 
     private void milActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_milActionPerformed
         // TODO add your handling code here:
+        milk m = new milk();
+        changePanel(m);
     }//GEN-LAST:event_milActionPerformed
 
     private void cusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cusActionPerformed
         // TODO add your handling code here:
+        customers c=new customers();
+        changePanel(c);
     }//GEN-LAST:event_cusActionPerformed
+
+    private void animaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_animaActionPerformed
+        // TODO add your handling code here:
+        animals a = new animals();
+        changePanel(a);
+    }//GEN-LAST:event_animaActionPerformed
+
+    private void empActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_empActionPerformed
+        // TODO add your handling code here:
+        employees em = new employees();
+        changePanel(em);
+    }//GEN-LAST:event_empActionPerformed
+
+    private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
+        // TODO add your handling code here:
+        MainPanel p = new MainPanel();
+        changePanel(p);
+    }//GEN-LAST:event_backActionPerformed
+
+    private void recActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recActionPerformed
+        // TODO add your handling code here:
+        records r = new records();
+        changePanel(r);
+    }//GEN-LAST:event_recActionPerformed
 
     /**
      * @param args the command line arguments
@@ -219,6 +277,7 @@ public class Menu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton anima;
+    private javax.swing.JButton back;
     private javax.swing.JButton cus;
     private javax.swing.JButton emp;
     private javax.swing.JLabel jLabel1;

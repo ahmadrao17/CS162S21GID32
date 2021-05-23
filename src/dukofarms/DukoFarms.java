@@ -22,6 +22,8 @@ public class DukoFarms {
         m.setVisible(true);
         //Menu1 m = new Menu1();
         //m.setVisible(true);
+        //test t = new test();
+        //t.setVisible(true);
     }
     
 }
