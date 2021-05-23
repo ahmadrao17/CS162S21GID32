@@ -16,8 +16,12 @@ public class DukoFarms {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Welcome w =new Welcome();
-        w.setVisible(true);
+        //Welcome w =new Welcome();
+        //w.setVisible(true);
+        Menu m = new Menu();
+        m.setVisible(true);
+        //Menu1 m = new Menu1();
+        //m.setVisible(true);
     }
     
 }
