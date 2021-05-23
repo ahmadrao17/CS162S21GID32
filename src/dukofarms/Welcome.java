@@ -5,6 +5,8 @@
  */
 package dukofarms;
 
+import java.awt.Color;
+
 /**
  *
  * @author G3NZ
@@ -16,6 +18,11 @@ public class Welcome extends javax.swing.JFrame {
      */
     public Welcome() {
         initComponents();
+        LoginBox.setBackground(new java.awt.Color(150,100,50,180));
+        forgetPass.setOpaque(false);
+        viewPass.setOpaque(false);
+        login.setOpaque(false);
+        changePass.setOpaque(false);
     }
 
     /**
@@ -27,21 +34,192 @@ public class Welcome extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        LoginBox = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        uname = new javax.swing.JTextField();
+        pass = new javax.swing.JPasswordField();
+        verUname = new javax.swing.JLabel();
+        verpass = new javax.swing.JLabel();
+        viewPass = new javax.swing.JToggleButton();
+        login = new javax.swing.JButton();
+        forgetPass = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        changePass = new javax.swing.JButton();
+        pic = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        LoginBox.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.light"));
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("username");
+
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("password");
+
+        uname.setBackground(new java.awt.Color(150, 100, 50));
+        uname.setForeground(new java.awt.Color(255, 255, 255));
+        uname.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        pass.setBackground(new java.awt.Color(150, 100, 50));
+        pass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
+        verUname.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        verUname.setForeground(new java.awt.Color(204, 0, 0));
+
+        verpass.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        verpass.setForeground(new java.awt.Color(204, 0, 0));
+
+        viewPass.setBackground(new java.awt.Color(150, 100, 50));
+        viewPass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/baseline_visibility_black_18dp.png"))); // NOI18N
+        viewPass.setBorder(null);
+        viewPass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewPassActionPerformed(evt);
+            }
+        });
+
+        login.setBackground(new java.awt.Color(150, 100, 50));
+        login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/baseline_login_black_24dp.png"))); // NOI18N
+        login.setBorder(null);
+
+        forgetPass.setBackground(new java.awt.Color(255, 255, 255));
+        forgetPass.setText("Forget Password");
+        forgetPass.setBorder(null);
+        forgetPass.setFocusable(false);
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel5.setText("LOGIN");
+
+        changePass.setBackground(new java.awt.Color(255, 255, 255));
+        changePass.setText("Change Password");
+        changePass.setBorder(null);
+
+        javax.swing.GroupLayout LoginBoxLayout = new javax.swing.GroupLayout(LoginBox);
+        LoginBox.setLayout(LoginBoxLayout);
+        LoginBoxLayout.setHorizontalGroup(
+            LoginBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LoginBoxLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(LoginBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(LoginBoxLayout.createSequentialGroup()
+                        .addGroup(LoginBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(46, 46, 46)
+                        .addGroup(LoginBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(forgetPass)
+                            .addGroup(LoginBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(verpass)
+                                .addComponent(verUname)
+                                .addComponent(uname, javax.swing.GroupLayout.DEFAULT_SIZE, 113, Short.MAX_VALUE)
+                                .addComponent(pass))))
+                    .addComponent(changePass))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(LoginBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(login, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(viewPass, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(45, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, LoginBoxLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(123, 123, 123))
+        );
+        LoginBoxLayout.setVerticalGroup(
+            LoginBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(LoginBoxLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jLabel5)
+                .addGap(37, 37, 37)
+                .addGroup(LoginBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(uname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(1, 1, 1)
+                .addComponent(verUname)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(LoginBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(viewPass, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(LoginBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(pass)
+                        .addComponent(jLabel4)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(verpass)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addComponent(forgetPass)
+                .addGap(18, 18, 18)
+                .addGroup(LoginBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(login)
+                    .addComponent(changePass))
+                .addGap(32, 32, 32))
+        );
+
+        jPanel1.add(LoginBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 360, 240));
+
+        pic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/regenwassernutzung-tierhaltung-849x566.jpg"))); // NOI18N
+        jPanel1.add(pic, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 740, 500));
+
+        jPanel3.setBackground(new java.awt.Color(150, 100, 50));
+
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("DUKO FARMS");
+
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Management System");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 720, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
+        );
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 740, 110));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void viewPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewPassActionPerformed
+        // TODO add your handling code here: 
+    }//GEN-LAST:event_viewPassActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +257,22 @@ public class Welcome extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel LoginBox;
+    private javax.swing.JButton changePass;
+    private javax.swing.JButton forgetPass;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JButton login;
+    private javax.swing.JPasswordField pass;
+    private javax.swing.JLabel pic;
+    private javax.swing.JTextField uname;
+    private javax.swing.JLabel verUname;
+    private javax.swing.JLabel verpass;
+    private javax.swing.JToggleButton viewPass;
     // End of variables declaration//GEN-END:variables
 }

@@ -16,6 +16,8 @@ public class DukoFarms {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Welcome w =new Welcome();
+        w.setVisible(true);
     }
     
 }
