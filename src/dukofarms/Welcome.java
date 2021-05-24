@@ -6,6 +6,9 @@
 package dukofarms;
 
 import java.awt.Color;
+import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
+import javax.swing.AbstractButton;
 
 /**
  *
@@ -23,8 +26,21 @@ public class Welcome extends javax.swing.JFrame {
         viewPass.setOpaque(false);
         login.setOpaque(false);
         changePass.setOpaque(false);
+        caps.setOpaque(false);
+        capscheck();
     }
 
+    public void capscheck()
+    {
+        if(Toolkit.getDefaultToolkit().getLockingKeyState(KeyEvent.VK_CAPS_LOCK))
+        {
+            caps.setText("Caps Lock is ON!");
+        }
+        else
+        {
+            caps.setText(null);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,6 +63,7 @@ public class Welcome extends javax.swing.JFrame {
         forgetPass = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         changePass = new javax.swing.JButton();
+        caps = new javax.swing.JLabel();
         pic = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -54,10 +71,20 @@ public class Welcome extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Welcome");
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        LoginBox.setBackground(javax.swing.UIManager.getDefaults().getColor("Button.light"));
+        LoginBox.setBackground(new java.awt.Color(102, 153, 255));
+        LoginBox.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                LoginBoxKeyPressed(evt);
+            }
+        });
 
         jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -70,9 +97,25 @@ public class Welcome extends javax.swing.JFrame {
         uname.setBackground(new java.awt.Color(150, 100, 50));
         uname.setForeground(new java.awt.Color(255, 255, 255));
         uname.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        uname.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unameActionPerformed(evt);
+            }
+        });
+        uname.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                unameKeyPressed(evt);
+            }
+        });
 
         pass.setBackground(new java.awt.Color(150, 100, 50));
         pass.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pass.setEchoChar('*');
+        pass.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                passKeyPressed(evt);
+            }
+        });
 
         verUname.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         verUname.setForeground(new java.awt.Color(204, 0, 0));
@@ -117,6 +160,11 @@ public class Welcome extends javax.swing.JFrame {
         changePass.setText("Change Password");
         changePass.setBorder(null);
 
+        caps.setBackground(new java.awt.Color(255, 255, 255));
+        caps.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        caps.setForeground(new java.awt.Color(255, 0, 0));
+        caps.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+
         javax.swing.GroupLayout LoginBoxLayout = new javax.swing.GroupLayout(LoginBox);
         LoginBox.setLayout(LoginBoxLayout);
         LoginBoxLayout.setHorizontalGroup(
@@ -125,9 +173,11 @@ public class Welcome extends javax.swing.JFrame {
                 .addGap(44, 44, 44)
                 .addGroup(LoginBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(LoginBoxLayout.createSequentialGroup()
-                        .addGroup(LoginBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(LoginBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(LoginBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(caps))
                         .addGap(46, 46, 46)
                         .addGroup(LoginBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(forgetPass)
@@ -158,15 +208,17 @@ public class Welcome extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addGap(1, 1, 1)
                 .addComponent(verUname)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(LoginBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(viewPass, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(LoginBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(pass)
                         .addComponent(jLabel4)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(verpass)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(LoginBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(verpass)
+                    .addComponent(caps))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(forgetPass)
                 .addGap(18, 18, 18)
                 .addGroup(LoginBoxLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -230,6 +282,15 @@ public class Welcome extends javax.swing.JFrame {
 
     private void viewPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewPassActionPerformed
         // TODO add your handling code here: 
+        if(viewPass.isSelected())
+        {
+            pass.setEchoChar((char)0);
+        }
+        else
+        {
+            pass.setEchoChar('*');
+        }
+        
         
     }//GEN-LAST:event_viewPassActionPerformed
 
@@ -242,11 +303,45 @@ public class Welcome extends javax.swing.JFrame {
 
     private void viewPassStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_viewPassStateChanged
         // TODO add your handling code here:
-        if(viewPass.isEnabled())
-        {
-            pass.setEchoChar((char)0);
-        }
+        
     }//GEN-LAST:event_viewPassStateChanged
+
+    private void passKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER)
+        {
+            Menu m = new Menu();
+            m.setVisible(true);
+            this.setVisible(false);
+        }
+        capscheck();
+    }//GEN-LAST:event_passKeyPressed
+
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_formKeyPressed
+
+    private void LoginBoxKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_LoginBoxKeyPressed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_LoginBoxKeyPressed
+
+    private void unameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_unameKeyPressed
+        // TODO add your handling code here:
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER)
+        {
+            Menu m = new Menu();
+            m.setVisible(true);
+            this.setVisible(false);
+        }
+        capscheck();
+    }//GEN-LAST:event_unameKeyPressed
+
+    private void unameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_unameActionPerformed
 
     /**
      * @param args the command line arguments
@@ -285,6 +380,7 @@ public class Welcome extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel LoginBox;
+    private javax.swing.JLabel caps;
     private javax.swing.JButton changePass;
     private javax.swing.JButton forgetPass;
     private javax.swing.JLabel jLabel1;
