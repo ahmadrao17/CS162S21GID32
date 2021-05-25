@@ -17,6 +17,8 @@ public class MainPanel extends javax.swing.JPanel {
     public MainPanel() {
         initComponents();
         this.setBackground(new java.awt.Color(150,100,50,75));
+        info.setBackground(new java.awt.Color(150,100,50,175));
+        jPanel1.setBackground(new java.awt.Color(150,100,50,230));
     }
 
     /**
@@ -41,40 +43,45 @@ public class MainPanel extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(610, 410));
+
         info.setBackground(new java.awt.Color(150, 100, 50));
+        info.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         info.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-instagram-circle-24.png"))); // NOI18N
         jLabel1.setText("ahmadrao/mumer");
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        info.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 188, -1, -1));
+        info.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-facebook-24.png"))); // NOI18N
         jLabel3.setText("Muhammad Umer");
         jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        info.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(112, 188, -1, -1));
+        info.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, -1, -1));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-mail-24.png"))); // NOI18N
         jLabel4.setText("ahmadrao17@gmail.com");
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        info.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(212, 188, -1, -1));
+        info.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("Contact us:");
-        info.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 160, -1, -1));
+        info.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-phone-24.png"))); // NOI18N
         jLabel7.setText("03126935581");
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel7.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        info.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(347, 188, -1, -1));
+        info.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, -1, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel11.setText("K.O Developers");
-        info.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 20, -1, -1));
+        jLabel11.setText(" K.O Developers ");
+        jLabel11.setAlignmentX(0.5F);
+        jLabel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        info.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(150, 100, 50));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -118,7 +125,7 @@ public class MainPanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        info.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 270, 110));
+        info.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 270, 110));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -127,9 +134,9 @@ public class MainPanel extends javax.swing.JPanel {
             .addGap(0, 520, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(48, 48, 48)
-                    .addComponent(info, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(59, Short.MAX_VALUE)))
+                    .addGap(41, 41, 41)
+                    .addComponent(info, javax.swing.GroupLayout.PREFERRED_SIZE, 460, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(19, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,8 +144,8 @@ public class MainPanel extends javax.swing.JPanel {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(81, 81, 81)
-                    .addComponent(info, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(99, Short.MAX_VALUE)))
+                    .addComponent(info, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(77, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 

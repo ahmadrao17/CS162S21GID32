@@ -123,7 +123,14 @@ public class Menu extends javax.swing.JFrame {
 
         logout.setBackground(new java.awt.Color(255, 255, 255));
         logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/baseline_logout_black_24dp.png"))); // NOI18N
+        logout.setToolTipText("Log Out");
         logout.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        logout.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                logoutMouseEntered(evt);
+            }
+        });
         logout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 logoutActionPerformed(evt);
@@ -131,7 +138,8 @@ public class Menu extends javax.swing.JFrame {
         });
 
         back.setBackground(new java.awt.Color(255, 255, 255));
-        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/baseline_arrow_back_black_24dp.png"))); // NOI18N
+        back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-home-page-24.png"))); // NOI18N
+        back.setToolTipText("Back to Home");
         back.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         back.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -185,6 +193,8 @@ public class Menu extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLayeredPane2.setLayout(new java.awt.CardLayout());
+
+        jPanel4.setPreferredSize(new java.awt.Dimension(690, 496));
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -251,6 +261,10 @@ public class Menu extends javax.swing.JFrame {
         w.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_logoutActionPerformed
+
+    private void logoutMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logoutMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_logoutMouseEntered
 
     /**
      * @param args the command line arguments

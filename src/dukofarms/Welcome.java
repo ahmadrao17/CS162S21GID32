@@ -125,6 +125,7 @@ public class Welcome extends javax.swing.JFrame {
 
         viewPass.setBackground(new java.awt.Color(150, 100, 50));
         viewPass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/baseline_visibility_black_18dp.png"))); // NOI18N
+        viewPass.setToolTipText("View Password");
         viewPass.setBorder(null);
         viewPass.addChangeListener(new javax.swing.event.ChangeListener() {
             public void stateChanged(javax.swing.event.ChangeEvent evt) {
@@ -139,6 +140,7 @@ public class Welcome extends javax.swing.JFrame {
 
         login.setBackground(new java.awt.Color(150, 100, 50));
         login.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/baseline_login_black_24dp.png"))); // NOI18N
+        login.setToolTipText("Log In");
         login.setBorder(null);
         login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
