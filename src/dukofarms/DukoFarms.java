@@ -38,7 +38,7 @@ private static DukoFarms instance;
         
         return instance;
     }
-     public void addContact(Customer cus){
+     public void addCustomer(Customer cus){
         listcustomer.add(cus);
     }
      private int searchCustomer(String CNIC )
@@ -56,7 +56,7 @@ private static DukoFarms instance;
         return index;
     }
  
-     public Customer getContact(String cnic)
+     public Customer getCustomer(String cnic)
     {
         int index = searchCustomer(cnic);
         return listcustomer.get(index);
@@ -124,5 +124,57 @@ private static DukoFarms instance;
          }
          
         return index;
+    }
+      public Employee getEmployee(String cnic)
+    {
+        int index = searchEmployee(cnic);
+        return listemployee.get(index);
+    }
+          public boolean updateEmployee(String CNIC ,Employee empl){
+       int index = searchEmployee(CNIC);
+       
+       if(index == -1)
+           return false;
+       else {
+           listemployee.set(index, empl);
+           return true;
+       }
+    }
+           public boolean deleteEmployee(String CNIC){
+       int index = searchEmployee(CNIC);
+       
+       if(index == -1)
+           return false;
+       else {
+           listemployee.remove(index);
+           return true;
+       }
+    }
+               public List<Employee> getAllEmployee(){
+        return listemployee;
+    }
+               public List<Employee> searchBasedonName(String nameText){
+        List<Employee> searched = new ArrayList<Employee>();
+        
+         for(int i = 0 ; i  < listemployee.size(); i++)
+         {
+             if(listemployee.get(i).getName().contains(nameText))
+             {
+                 searched.add(listemployee.get(i));
+             }
+         }
+        return searched;
+    }
+                public List<Employee> searchBasedonCNIC(String CNIC){
+        List<Employee> searched = new ArrayList<Employee>();
+        
+         for(int i = 0 ; i  < listemployee.size(); i++)
+         {
+             if(listemployee.get(i).getCNIC().contains(CNIC))
+             {
+                 searched.add(listemployee.get(i));
+             }
+         }
+        return searched;
     }
 }
