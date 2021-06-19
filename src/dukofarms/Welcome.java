@@ -152,6 +152,11 @@ public class Welcome extends javax.swing.JFrame {
         forgetPass.setText("Forget Password");
         forgetPass.setBorder(null);
         forgetPass.setFocusable(false);
+        forgetPass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                forgetPassActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -344,6 +349,10 @@ public class Welcome extends javax.swing.JFrame {
     private void unameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_unameActionPerformed
+
+    private void forgetPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forgetPassActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_forgetPassActionPerformed
 
     /**
      * @param args the command line arguments
