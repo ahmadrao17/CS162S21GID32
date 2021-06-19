@@ -41,12 +41,12 @@ private static DukoFarms instance;
      public void addContact(Customer cus){
         listcustomer.add(cus);
     }
-     private int searchCustomer(String contact , String name)
+     private int searchCustomer(String CNIC )
     {
         int index = -1;
          for(int i = 0 ; i  < listcustomer.size(); i++)
          {
-             if(listcustomer.get(i).getContact().equals(contact) ||  listcustomer.get(i).getName().equals(name))
+             if(listcustomer.get(i).getContact().equals(CNIC))
              {
                  index = i;
                  break;
@@ -55,23 +55,10 @@ private static DukoFarms instance;
          
         return index;
     }
-        private int searchCustomer( String name)
-    {
-        int index = -1;
-         for(int i = 0 ; i  < listcustomer.size(); i++)
-         {
-             if(listcustomer.get(i).getName().equals(name))
-             {
-                 index = i;
-                 break;
-             }
-         }
-         
-        return index;
-    }
+ 
      public Customer getContact(String cnic)
     {
-        int index = searchCustomer(cnic,"");
+        int index = searchCustomer(cnic);
         return listcustomer.get(index);
     }
           public boolean updateCustomer(String CNIC ,Customer custo){
@@ -120,5 +107,22 @@ private static DukoFarms instance;
              }
          }
         return searched;
+    }
+         public void addEmployee(Employee emp){
+        listemployee.add(emp);
+    }
+     private int searchEmployee(String CNIC)
+    {
+        int index = -1;
+         for(int i = 0 ; i  < listemployee.size(); i++)
+         {
+             if(listemployee.get(i).getCNIC().equals(CNIC))
+             {
+                 index = i;
+                 break;
+             }
+         }
+         
+        return index;
     }
 }
