@@ -406,28 +406,34 @@ public class Welcome extends javax.swing.JFrame {
         int n4 = rand.nextInt(9);
         String code = Integer.toString(n1) + Integer.toString(n2) + Integer.toString(n3) + Integer.toString(n4);
         String content = "Hi, "+a.getName()+"\n"+"The verification code to access your account is \n\n"+code+"\n\nDO NO FORWARD THIS CODE TO ANYONE";
-        Properties p = new Properties();
-        p.put("mail.smpt.auth", "true");
-        p.put("mail.smpt.starttls.enable", "true");
-        p.put("mail.smpt.host", "smtp.gmail.com");
-        p.put("mail.smpt.port", "587");
-        Session s = Session.getDefaultInstance(p, new javax.mail.Authenticator() {
-            protected PasswordAuthentication getPasswordAuthentication()
-            {
-                return new PasswordAuthentication("dukofarms55@gmail.com","duko@6174");
+//        
+        Properties props = new Properties();
+        props.put("mail.smtp.auth", true);
+        props.put("mail.smtp.starttls.enable", true);
+        props.put("mail.smtp.host", "smtp.gmail.com");
+        props.put("mail.smtp.port", "587");
+        props.setProperty("mail.smtp.ssl.trust", "smtp.gmail.com");
+
+        Session session = Session.getInstance(props, new javax.mail.Authenticator() {
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication("dukofarms5@gmail.com","Zain@123");
             }
         });
+
         try {
-            MimeMessage m = new MimeMessage(s);
-            m.setFrom(from);
-            m.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-            m.setSubject(sub);
-            m.setText(content);
-            Transport.send(m);
-            JOptionPane.showConfirmDialog(null, "Code sent via Email");
-        }
-        catch (MessagingException ex) {
-            Logger.getLogger(Welcome.class.getName()).log(Level.SEVERE, null, ex);
+
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress(from));//ur email
+            message.setRecipients(Message.RecipientType.TO,
+                    InternetAddress.parse(to));//u will send to
+            message.setSubject(sub);
+            message.setText(content);
+            Transport.send(message);
+            System.out.println("success");
+
+        } catch (MessagingException e) {
+            System.out.println(e);
         }
     }//GEN-LAST:event_forgetPassActionPerformed
 
