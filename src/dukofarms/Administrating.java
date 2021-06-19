@@ -10,15 +10,11 @@ package dukofarms;
  * @author G3NZ
  */
 public class Administrating extends Person{
-    private String email;
+    private String email = "ahmadrao17@gmail.com";
     private String password;
 
     public String getEmail() {
         return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getPassword() {

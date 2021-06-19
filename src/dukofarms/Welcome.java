@@ -8,7 +8,15 @@ package dukofarms;
 import java.awt.Color;
 import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
+import java.util.Random;
+import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.mail.*;
+import javax.mail.internet.*;
+import javax.activation.*;
 import javax.swing.AbstractButton;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,6 +27,41 @@ public class Welcome extends javax.swing.JFrame {
     /**
      * Creates new form Welcome
      */
+    /**
+     * @param args the command line arguments
+     */
+    Administrating a = new Administrating();
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Welcome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Welcome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Welcome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Welcome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Welcome().setVisible(true);
+            }
+        });
+    }
     public Welcome() {
         initComponents();
         LoginBox.setBackground(new java.awt.Color(150,100,50,180));
@@ -148,7 +191,7 @@ public class Welcome extends javax.swing.JFrame {
             }
         });
 
-        forgetPass.setBackground(new java.awt.Color(255, 255, 255));
+        forgetPass.setBackground(new java.awt.Color(150, 100, 50));
         forgetPass.setText("Forget Password");
         forgetPass.setBorder(null);
         forgetPass.setFocusable(false);
@@ -163,7 +206,7 @@ public class Welcome extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("LOGIN");
 
-        changePass.setBackground(new java.awt.Color(255, 255, 255));
+        changePass.setBackground(new java.awt.Color(150, 100, 50));
         changePass.setText("Change Password");
         changePass.setBorder(null);
 
@@ -352,43 +395,43 @@ public class Welcome extends javax.swing.JFrame {
 
     private void forgetPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forgetPassActionPerformed
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_forgetPassActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Welcome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Welcome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Welcome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Welcome.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Welcome().setVisible(true);
+        String from = "dukofarms55@gmail.com";
+        String to = a.getEmail();
+        String host = "localhost";
+        String sub = "Forget Password";
+        Random rand = new Random();
+        int n1 = rand.nextInt(9);
+        int n2 = rand.nextInt(9);
+        int n3 = rand.nextInt(9);
+        int n4 = rand.nextInt(9);
+        String code = Integer.toString(n1) + Integer.toString(n2) + Integer.toString(n3) + Integer.toString(n4);
+        String content = "Hi, "+a.getName()+"\n"+"The verification code to access your account is \n\n"+code+"\n\nDO NO FORWARD THIS CODE TO ANYONE";
+        Properties p = new Properties();
+        p.put("mail.smpt.auth", "true");
+        p.put("mail.smpt.starttls.enable", "true");
+        p.put("mail.smpt.host", "smtp.gmail.com");
+        p.put("mail.smpt.port", "587");
+        Session s = Session.getDefaultInstance(p, new javax.mail.Authenticator() {
+            protected PasswordAuthentication getPasswordAuthentication()
+            {
+                return new PasswordAuthentication("dukofarms55@gmail.com","duko@6174");
             }
         });
-    }
+        try {
+            MimeMessage m = new MimeMessage(s);
+            m.setFrom(from);
+            m.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+            m.setSubject(sub);
+            m.setText(content);
+            Transport.send(m);
+            JOptionPane.showConfirmDialog(null, "Code sent via Email");
+        }
+        catch (MessagingException ex) {
+            Logger.getLogger(Welcome.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_forgetPassActionPerformed
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel LoginBox;
