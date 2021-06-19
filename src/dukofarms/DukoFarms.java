@@ -6,6 +6,7 @@
 package dukofarms;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -173,6 +174,146 @@ private static DukoFarms instance;
              if(listemployee.get(i).getCNIC().contains(CNIC))
              {
                  searched.add(listemployee.get(i));
+             }
+         }
+        return searched;
+    }
+                 public void addCattels(Slaughtering salaugh){
+        listCattle.add(salaugh);
+    }
+     private int searchCattle(String Srno )
+    {
+        int index = -1;
+         for(int i = 0 ; i  < listCattle.size(); i++)
+         {
+             if(listCattle.get(i).getSrno().equals(Srno))
+             {
+                 index = i;
+                 break;
+             }
+         }
+         
+        return index;
+    }
+ 
+     public Slaughtering getCattel(String Srno)
+    {
+        int index = searchCattle(Srno);
+        return listCattle.get(index);
+    }
+          public boolean updateCattel(String Srno ,Slaughtering slaugh){
+       int index = searchCattle(Srno);
+       
+       if(index == -1)
+           return false;
+       else {
+           listCattle.set(index, slaugh);
+           return true;
+       }
+    }
+            public boolean deleteCattel(String Srno){
+       int index = searchCattle(Srno);
+       
+       if(index == -1)
+           return false;
+       else {
+           listCattle.remove(index);
+           return true;
+       }
+    }
+             public List<Slaughtering> getAllCattel(){
+        return listCattle;
+    }
+              public List<Slaughtering> searchBasedOnSrno(String Srno){
+        List<Slaughtering> searched = new ArrayList<Slaughtering>();
+        
+         for(int i = 0 ; i  < listCattle.size(); i++)
+         {
+             if(listCattle.get(i).getSrno().equals(Srno))
+             {
+                 searched.add(listCattle.get(i));
+             }
+         }
+        return searched;
+    }
+        public List<Slaughtering> searchBasedOnPurchaseDate(Date purchase){
+        List<Slaughtering> searched = new ArrayList<Slaughtering>();
+        
+         for(int i = 0 ; i  < listCattle.size(); i++)
+         {
+             if(listCattle.get(i).getSrno().equals(purchase))
+             {
+                 searched.add(listCattle.get(i));
+             }
+         }
+        return searched;
+    }
+                         public void addBuffalos(MilkProducing milk){
+        listBuffalos.add(milk);
+    }
+     private int searchBuffalos(String Srno )
+    {
+        int index = -1;
+         for(int i = 0 ; i  < listBuffalos.size(); i++)
+         {
+             if(listBuffalos.get(i).getSrno().equals(Srno))
+             {
+                 index = i;
+                 break;
+             }
+         }
+         
+        return index;
+    }
+ 
+     public MilkProducing getBuffalos(String Srno)
+    {
+        int index = searchBuffalos(Srno);
+        return listBuffalos.get(index);
+    }
+          public boolean updateBuffalos(String Srno ,MilkProducing milk){
+       int index = searchBuffalos(Srno);
+       
+       if(index == -1)
+           return false;
+       else {
+           listBuffalos.set(index, milk);
+           return true;
+       }
+    }
+            public boolean deleteBuffalos(String Srno){
+       int index = searchBuffalos(Srno);
+       
+       if(index == -1)
+           return false;
+       else {
+           listBuffalos.remove(index);
+           return true;
+       }
+    }
+             public List<MilkProducing> getAllBuffalos(){
+        return listBuffalos;
+    }
+              public List<MilkProducing> searchBasedonSrno(String Srno){
+        List<MilkProducing> searched = new ArrayList<MilkProducing>();
+        
+         for(int i = 0 ; i  < listBuffalos.size(); i++)
+         {
+             if(listBuffalos.get(i).getSrno().equals(Srno))
+             {
+                 searched.add(listBuffalos.get(i));
+             }
+         }
+        return searched;
+    }
+        public List<MilkProducing> searchBasedonPurchaseDate(Date purchase){
+        List<MilkProducing> searched = new ArrayList<MilkProducing>();
+        
+         for(int i = 0 ; i  < listBuffalos.size(); i++)
+         {
+             if(listBuffalos.get(i).getSrno().equals(purchase))
+             {
+                 searched.add(listBuffalos.get(i));
              }
          }
         return searched;
