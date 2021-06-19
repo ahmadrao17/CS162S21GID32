@@ -195,6 +195,26 @@ public class addCustomer extends javax.swing.JFrame {
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
         // TODO add your handling code here:
+        String name= jTextField2.getText();
+   public boolean ValidateStudentName(String Name)
+  {
+    
+    boolean flag =true;
+    for(int i=0;i<Name.length();i++)
+    {
+      if(Name.charAt(i)>='a'  && Name.charAt(i)<='z'   || Name.charAt(i)>='A'  && Name.charAt(i)<='Z'  || Name.charAt(i)==' ' )
+      {
+        
+      }
+      else
+      {
+        flag=false;
+      }
+      
+    }
+    return flag;
+    
+  }
         this.setVisible(false);
     }//GEN-LAST:event_addActionPerformed
 
