@@ -198,11 +198,11 @@ private static DukoFarms instance;
  
      public Slaughtering getCattel(String Srno)
     {
-        int index = searchCustomer(Srno);
+        int index = searchCattle(Srno);
         return listCattle.get(index);
     }
           public boolean updateCattel(String Srno ,Slaughtering slaugh){
-       int index = searchCustomer(Srno);
+       int index = searchCattle(Srno);
        
        if(index == -1)
            return false;
@@ -212,7 +212,7 @@ private static DukoFarms instance;
        }
     }
             public boolean deleteCattel(String Srno){
-       int index = searchCustomer(Srno);
+       int index = searchCattle(Srno);
        
        if(index == -1)
            return false;
@@ -244,6 +244,76 @@ private static DukoFarms instance;
              if(listCattle.get(i).getSrno().equals(purchase))
              {
                  searched.add(listCattle.get(i));
+             }
+         }
+        return searched;
+    }
+                         public void addBuffalos(MilkProducing milk){
+        listBuffalos.add(milk);
+    }
+     private int searchBuffalos(String Srno )
+    {
+        int index = -1;
+         for(int i = 0 ; i  < listBuffalos.size(); i++)
+         {
+             if(listBuffalos.get(i).getSrno().equals(Srno))
+             {
+                 index = i;
+                 break;
+             }
+         }
+         
+        return index;
+    }
+ 
+     public MilkProducing getBuffalos(String Srno)
+    {
+        int index = searchBuffalos(Srno);
+        return listBuffalos.get(index);
+    }
+          public boolean updateBuffalos(String Srno ,MilkProducing milk){
+       int index = searchBuffalos(Srno);
+       
+       if(index == -1)
+           return false;
+       else {
+           listBuffalos.set(index, milk);
+           return true;
+       }
+    }
+            public boolean deleteBuffalos(String Srno){
+       int index = searchBuffalos(Srno);
+       
+       if(index == -1)
+           return false;
+       else {
+           listBuffalos.remove(index);
+           return true;
+       }
+    }
+             public List<MilkProducing> getAllBuffalos(){
+        return listBuffalos;
+    }
+              public List<MilkProducing> searchBasedonSrno(String Srno){
+        List<MilkProducing> searched = new ArrayList<MilkProducing>();
+        
+         for(int i = 0 ; i  < listBuffalos.size(); i++)
+         {
+             if(listBuffalos.get(i).getSrno().equals(Srno))
+             {
+                 searched.add(listBuffalos.get(i));
+             }
+         }
+        return searched;
+    }
+        public List<MilkProducing> searchBasedonPurchaseDate(Date purchase){
+        List<MilkProducing> searched = new ArrayList<MilkProducing>();
+        
+         for(int i = 0 ; i  < listBuffalos.size(); i++)
+         {
+             if(listBuffalos.get(i).getSrno().equals(purchase))
+             {
+                 searched.add(listBuffalos.get(i));
              }
          }
         return searched;
