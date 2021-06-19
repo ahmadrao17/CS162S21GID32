@@ -9,6 +9,6 @@ package dukofarms;
  *
  * @author G3NZ
  */
-public interface Profit {
-    
+public interface Profit {    
+    Integer profit();
 }

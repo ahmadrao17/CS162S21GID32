@@ -5,10 +5,15 @@
  */
 package dukofarms;
 
+import java.util.Date;
+
 /**
  *
  * @author G3NZ
  */
 public class Animal {
-    
+    protected String Srno;
+    protected Date PruchaseDate;
+    protected Integer PurchasePrice;
+    protected String Breed;
 }

@@ -9,24 +9,24 @@ package dukofarms;
  *
  * @author G3NZ
  */
-public class Cattle implements Profit
+public class MilkProfit implements Profit
 {
     private Integer purchase;
+    private Integer sale;
 
     public void setPurchase(Integer purchase) {
         this.purchase = purchase;
     }
-    private Integer sale;
 
     public void setSale(Integer sale) {
         this.sale = sale;
     }
-    public Integer profit() 
-    {
+    public Integer profit() {
+        
         Integer profit = purchase - sale;
         return profit;
+    
     }
-
     
     
 }

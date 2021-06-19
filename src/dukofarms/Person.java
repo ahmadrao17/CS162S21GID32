@@ -10,5 +10,6 @@ package dukofarms;
  * @author G3NZ
  */
 public class Person {
-    
+    protected String name;
+    protected String CNIC ;
 }

@@ -9,6 +9,7 @@ package dukofarms;
  *
  * @author G3NZ
  */
-public class Non_Adminstrating {
-    
+public class Non_Adminstrating extends Person{
+    protected String address;
+    protected String contact;
 }

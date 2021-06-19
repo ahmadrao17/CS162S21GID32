@@ -352,6 +352,7 @@ public class Welcome extends javax.swing.JFrame {
 
     private void forgetPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forgetPassActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_forgetPassActionPerformed
 
     /**
