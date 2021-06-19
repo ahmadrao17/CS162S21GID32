@@ -5,15 +5,38 @@
  */
 package dukofarms;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author G3NZ
  */
 public class DukoFarms {
-
-    /**
-     * @param args the command line arguments
-     */
     
+private static DukoFarms instance;
+    
+    private List<Customer> listcustomer;
+    private List<Employee> listemployee;
+    private List<Slaughtering> listCattle;
+    private List<MilkProducing> listBuffalos;
+    
+    
+    
+    private DukoFarms(){
+        listcustomer = new ArrayList<Customer>();
+        listemployee = new ArrayList<Employee>();
+        listCattle = new ArrayList<Slaughtering>();
+        listBuffalos = new ArrayList<MilkProducing>();
+    }
+    
+    public static DukoFarms getIsntance(){
+        if(instance==null)
+        {
+            instance = new DukoFarms();
+        }
+        
+        return instance;
+    }
     
 }

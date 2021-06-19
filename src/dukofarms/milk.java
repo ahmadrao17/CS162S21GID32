@@ -47,7 +47,7 @@ public class milk extends javax.swing.JPanel {
             }
         });
 
-        add.setBackground(new java.awt.Color(204, 204, 204));
+        add.setBackground(new java.awt.Color(150, 100, 50));
         add.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         add.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/baseline_control_point_black_24dp.png"))); // NOI18N
         add.setText("Add");

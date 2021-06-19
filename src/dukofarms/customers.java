@@ -76,13 +76,13 @@ public class customers extends javax.swing.JPanel {
             }
         });
 
-        Clear.setBackground(new java.awt.Color(255, 255, 255));
+        Clear.setBackground(new java.awt.Color(150, 100, 50));
         Clear.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Clear.setForeground(new java.awt.Color(255, 255, 255));
-        Clear.setText("Clear filters");
+        Clear.setText(" Clear filters ");
         Clear.setBorder(null);
 
-        add.setBackground(new java.awt.Color(204, 204, 204));
+        add.setBackground(new java.awt.Color(150, 100, 50));
         add.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         add.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/baseline_control_point_black_24dp.png"))); // NOI18N
         add.setText("Add new customers");
@@ -119,6 +119,7 @@ public class customers extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(jTable3);
 
+        Search.setBackground(new java.awt.Color(150, 100, 50));
         Search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/WhatsApp Image 2021-05-23 at 9.09.11 AM.jpeg"))); // NOI18N
         Search.setBorder(null);
 
@@ -140,8 +141,7 @@ public class customers extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(Clear)
                                 .addGap(124, 124, 124)
-                                .addComponent(Search)
-                                .addGap(15, 15, 15))
+                                .addComponent(Search))
                             .addComponent(jTextField1)
                             .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(49, 49, 49))

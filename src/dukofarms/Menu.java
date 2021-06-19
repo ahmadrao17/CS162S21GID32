@@ -65,7 +65,7 @@ public class Menu extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(150, 100, 50));
 
-        anima.setBackground(new java.awt.Color(255, 255, 255));
+        anima.setBackground(new java.awt.Color(150, 100, 50));
         anima.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         anima.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-cow-breed-50.png"))); // NOI18N
         anima.setText("Animals ");
@@ -77,7 +77,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        cus.setBackground(new java.awt.Color(255, 255, 255));
+        cus.setBackground(new java.awt.Color(150, 100, 50));
         cus.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         cus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-person-50.png"))); // NOI18N
         cus.setText("Customers ");
@@ -88,7 +88,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        emp.setBackground(new java.awt.Color(255, 255, 255));
+        emp.setBackground(new java.awt.Color(150, 100, 50));
         emp.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         emp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-name-tag-50.png"))); // NOI18N
         emp.setText("Employees ");
@@ -99,7 +99,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        mil.setBackground(new java.awt.Color(255, 255, 255));
+        mil.setBackground(new java.awt.Color(150, 100, 50));
         mil.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         mil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-milk-bottle-50.png"))); // NOI18N
         mil.setText("MIlk ");
@@ -110,7 +110,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        rec.setBackground(new java.awt.Color(255, 255, 255));
+        rec.setBackground(new java.awt.Color(150, 100, 50));
         rec.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         rec.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-journal-50.png"))); // NOI18N
         rec.setText("Records ");
@@ -121,7 +121,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        logout.setBackground(new java.awt.Color(255, 255, 255));
+        logout.setBackground(new java.awt.Color(150, 100, 50));
         logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/baseline_logout_black_24dp.png"))); // NOI18N
         logout.setToolTipText("Log Out");
         logout.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -137,7 +137,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        back.setBackground(new java.awt.Color(255, 255, 255));
+        back.setBackground(new java.awt.Color(150, 100, 50));
         back.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-home-page-24.png"))); // NOI18N
         back.setToolTipText("Back to Home");
         back.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));

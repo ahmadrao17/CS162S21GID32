@@ -192,7 +192,7 @@ public class Welcome extends javax.swing.JFrame {
         });
 
         forgetPass.setBackground(new java.awt.Color(150, 100, 50));
-        forgetPass.setText("Forget Password");
+        forgetPass.setText(" Forget Password ");
         forgetPass.setBorder(null);
         forgetPass.setFocusable(false);
         forgetPass.addActionListener(new java.awt.event.ActionListener() {
@@ -207,7 +207,7 @@ public class Welcome extends javax.swing.JFrame {
         jLabel5.setText("LOGIN");
 
         changePass.setBackground(new java.awt.Color(150, 100, 50));
-        changePass.setText("Change Password");
+        changePass.setText(" Change Password ");
         changePass.setBorder(null);
 
         caps.setBackground(new java.awt.Color(255, 255, 255));

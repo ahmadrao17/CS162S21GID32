@@ -71,13 +71,13 @@ public class animals extends javax.swing.JPanel {
         jRadioButton2.setText("Search by purchase date ");
         jRadioButton2.setBorder(null);
 
-        Clear.setBackground(new java.awt.Color(255, 255, 255));
+        Clear.setBackground(new java.awt.Color(150, 100, 50));
         Clear.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Clear.setForeground(new java.awt.Color(255, 255, 255));
-        Clear.setText("Clear filters");
+        Clear.setText(" Clear filters ");
         Clear.setBorder(null);
 
-        add.setBackground(new java.awt.Color(204, 204, 204));
+        add.setBackground(new java.awt.Color(150, 100, 50));
         add.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         add.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/baseline_control_point_black_24dp.png"))); // NOI18N
         add.setText("Add new Animal");
@@ -114,8 +114,11 @@ public class animals extends javax.swing.JPanel {
         });
         jScrollPane3.setViewportView(jTable3);
 
+        Search.setBackground(new java.awt.Color(150, 100, 50));
         Search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/WhatsApp Image 2021-05-23 at 9.09.11 AM.jpeg"))); // NOI18N
         Search.setBorder(null);
+
+        jDateChooser2.setBackground(new java.awt.Color(150, 100, 50));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -138,7 +141,7 @@ public class animals extends javax.swing.JPanel {
                                 .addGap(15, 15, 15))
                             .addComponent(jTextField1)
                             .addComponent(jDateChooser2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
             .addComponent(jScrollPane3)
         );
         layout.setVerticalGroup(
