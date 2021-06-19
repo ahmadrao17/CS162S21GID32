@@ -5,6 +5,10 @@
  */
 package dukofarms;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author DEll
@@ -14,8 +18,50 @@ public class addCustomer extends javax.swing.JFrame {
     /**
      * Creates new form addCustomer
      */
+    private Customer customer;
+    private String action;
+    private String CNIC;
     public addCustomer() {
         initComponents();
+    }
+    public addCustomer(String cnic, String Action) {
+        initComponents();
+        this.action = Action;
+        this.CNIC = cnic;
+        if(Action.equals("Add"))
+        {
+            customer = new Customer();
+            Title.setText("Add Customer");
+        }
+        else if(Action.equals("Update"))
+        {
+            Title.setText("Edit Customer");
+            customer = DukoFarms.getIsntance().getCustomer(cnic);
+            namefield.setText(customer.getName());
+            address.setText(customer.getAddress());
+            contact.setText(customer.getContact());
+            CNICField.setText(cnic);
+            Quantity.setText("" + customer.getSupply());
+            add.setText("Update");
+            add.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-save-24.png")));
+        }
+        else if(Action.equals("Delete"))
+        {
+            Title.setText("Delete Customer");
+            customer = DukoFarms.getIsntance().getCustomer(cnic);
+            namefield.setText(customer.getName());
+            address.setText(customer.getAddress());
+            contact.setText(customer.getContact());
+            CNICField.setText(cnic);
+            Quantity.setText("" + customer.getSupply());
+            namefield.setEnabled(false);
+            address.setEnabled(false);
+            contact.setEnabled(false);
+            CNICField.setEnabled(false);
+            Quantity.setEnabled(false);
+            add.setText("Delete");
+            add.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/baseline_delete_black_24dp.png")));
+        }
     }
 
     /**
@@ -30,15 +76,17 @@ public class addCustomer extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         add = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
+        namefield = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        Quantity = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        Title = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        address = new javax.swing.JTextArea();
         jLabel6 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        contact = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        CNICField = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,12 +107,12 @@ public class addCustomer extends javax.swing.JFrame {
             }
         });
 
-        jTextField2.setBackground(new java.awt.Color(150, 100, 50));
-        jTextField2.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        namefield.setBackground(new java.awt.Color(150, 100, 50));
+        namefield.setForeground(new java.awt.Color(255, 255, 255));
+        namefield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        namefield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                namefieldActionPerformed(evt);
             }
         });
 
@@ -72,12 +120,12 @@ public class addCustomer extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Address");
 
-        jTextField6.setBackground(new java.awt.Color(150, 100, 50));
-        jTextField6.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTextField6.addActionListener(new java.awt.event.ActionListener() {
+        Quantity.setBackground(new java.awt.Color(150, 100, 50));
+        Quantity.setForeground(new java.awt.Color(255, 255, 255));
+        Quantity.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        Quantity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField6ActionPerformed(evt);
+                QuantityActionPerformed(evt);
             }
         });
 
@@ -85,26 +133,39 @@ public class addCustomer extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Quantity Recieved");
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel7.setText("ADD CUSTOMER");
+        Title.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        Title.setText("ADD CUSTOMER");
 
         jScrollPane1.setBackground(new java.awt.Color(150, 100, 50));
 
-        jTextArea1.setBackground(new java.awt.Color(150, 100, 50));
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(3);
-        jScrollPane1.setViewportView(jTextArea1);
+        address.setBackground(new java.awt.Color(150, 100, 50));
+        address.setColumns(20);
+        address.setRows(3);
+        jScrollPane1.setViewportView(address);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Contact");
 
-        jTextField7.setBackground(new java.awt.Color(150, 100, 50));
-        jTextField7.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+        contact.setBackground(new java.awt.Color(150, 100, 50));
+        contact.setForeground(new java.awt.Color(255, 255, 255));
+        contact.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        contact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField7ActionPerformed(evt);
+                contactActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel9.setText("CNIC");
+
+        CNICField.setBackground(new java.awt.Color(150, 100, 50));
+        CNICField.setForeground(new java.awt.Color(255, 255, 255));
+        CNICField.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        CNICField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CNICFieldActionPerformed(evt);
             }
         });
 
@@ -120,17 +181,19 @@ public class addCustomer extends javax.swing.JFrame {
                             .addComponent(jLabel2)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6)
-                            .addComponent(jLabel3))
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel9))
                         .addGap(44, 44, 44)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CNICField, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(contact, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(namefield, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(Quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(125, 125, 125)
-                        .addComponent(jLabel7)))
-                .addContainerGap(65, Short.MAX_VALUE))
+                        .addComponent(Title)))
+                .addContainerGap(93, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(add, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -140,11 +203,11 @@ public class addCustomer extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel7)
+                .addComponent(Title)
                 .addGap(23, 23, 23)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(namefield, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -154,13 +217,17 @@ public class addCustomer extends javax.swing.JFrame {
                         .addComponent(jLabel3)))
                 .addGap(29, 29, 29)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(contact, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CNICField, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(add)
                 .addGap(18, 18, 18))
         );
@@ -173,32 +240,57 @@ public class addCustomer extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void namefieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namefieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_namefieldActionPerformed
 
-    private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
+    private void QuantityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuantityActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField6ActionPerformed
+    }//GEN-LAST:event_QuantityActionPerformed
 
-    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+    private void contactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField7ActionPerformed
+    }//GEN-LAST:event_contactActionPerformed
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
         // TODO add your handling code here:
-        String name= jTextField2.getText();
-
+        if(action.equals("Add"))
+        {
+            customer.setName(namefield.getText());
+            customer.setContact(contact.getText());
+            customer.setCNIC(CNICField.getText());
+            customer.setSupply(Double.parseDouble(Quantity.getText()));
+            customer.setAddress(address.getText());
+            DukoFarms.getIsntance().addCustomer(customer);
+            JOptionPane.showConfirmDialog(null, "Customer Added");
+        }
+        else if(action.equals("Update"))
+        {
+            customer.setName(namefield.getText());
+            customer.setContact(contact.getText());
+            customer.setCNIC(CNICField.getText());
+            customer.setSupply(Double.parseDouble(Quantity.getText()));
+            customer.setAddress(address.getText());
+            DukoFarms.getIsntance().updateCustomer(CNIC, customer);
+            JOptionPane.showConfirmDialog(null, "Customer Update");
+        }
+        else if(action.equals("Delete"))
+        {
+            DukoFarms.getIsntance().deleteCustomer(CNIC);
+            JOptionPane.showConfirmDialog(null, "Customer Deleted");
+        }
         this.setVisible(false);
     }//GEN-LAST:event_addActionPerformed
+
+    private void CNICFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CNICFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CNICFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -236,17 +328,19 @@ public class addCustomer extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField CNICField;
+    private javax.swing.JTextField Quantity;
+    private javax.swing.JLabel Title;
     private javax.swing.JButton add;
+    private javax.swing.JTextArea address;
+    private javax.swing.JTextField contact;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField namefield;
     // End of variables declaration//GEN-END:variables
 }
