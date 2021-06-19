@@ -195,6 +195,8 @@ public class addCustomer extends javax.swing.JFrame {
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
         // TODO add your handling code here:
+        String name= jTextField2.getText();
+
         this.setVisible(false);
     }//GEN-LAST:event_addActionPerformed
 
