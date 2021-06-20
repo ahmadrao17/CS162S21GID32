@@ -20,14 +20,14 @@ public class addCustomer extends javax.swing.JFrame {
      */
     private Customer customer;
     private String action;
-    private String CNIC;
+    private String contact;
     public addCustomer() {
         initComponents();
     }
-    public addCustomer(String cnic, String Action) {
+    public addCustomer(String contact, String Action) {
         initComponents();
         this.action = Action;
-        this.CNIC = cnic;
+        this.contact = contact;
         if(Action.equals("Add"))
         {
             customer = new Customer();
@@ -36,11 +36,11 @@ public class addCustomer extends javax.swing.JFrame {
         else if(Action.equals("Update"))
         {
             Title.setText("Edit Customer");
-            customer = DukoFarms.getIsntance().getCustomer(cnic);
+            customer = DukoFarms.getIsntance().getCustomer(contact);
             namefield.setText(customer.getName());
             address.setText(customer.getAddress());
-            contact.setText(customer.getContact());
-            CNICField.setText(cnic);
+            contactfield.setText(customer.getContact());
+            CNICField.setText(customer.getCNIC());
             Quantity.setText("" + customer.getSupply());
             add.setText("Update");
             add.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/icons8-save-24.png")));
@@ -48,15 +48,15 @@ public class addCustomer extends javax.swing.JFrame {
         else if(Action.equals("Delete"))
         {
             Title.setText("Delete Customer");
-            customer = DukoFarms.getIsntance().getCustomer(cnic);
+            customer = DukoFarms.getIsntance().getCustomer(contact);
             namefield.setText(customer.getName());
             address.setText(customer.getAddress());
-            contact.setText(customer.getContact());
-            CNICField.setText(cnic);
+            contactfield.setText(customer.getContact());
+            CNICField.setText(customer.getCNIC());
             Quantity.setText("" + customer.getSupply());
             namefield.setEnabled(false);
             address.setEnabled(false);
-            contact.setEnabled(false);
+            contactfield.setEnabled(false);
             CNICField.setEnabled(false);
             Quantity.setEnabled(false);
             add.setText("Delete");
@@ -84,7 +84,7 @@ public class addCustomer extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         address = new javax.swing.JTextArea();
         jLabel6 = new javax.swing.JLabel();
-        contact = new javax.swing.JTextField();
+        contactfield = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         CNICField = new javax.swing.JTextField();
 
@@ -147,12 +147,12 @@ public class addCustomer extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Contact");
 
-        contact.setBackground(new java.awt.Color(150, 100, 50));
-        contact.setForeground(new java.awt.Color(255, 255, 255));
-        contact.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        contact.addActionListener(new java.awt.event.ActionListener() {
+        contactfield.setBackground(new java.awt.Color(150, 100, 50));
+        contactfield.setForeground(new java.awt.Color(255, 255, 255));
+        contactfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        contactfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contactActionPerformed(evt);
+                contactfieldActionPerformed(evt);
             }
         });
 
@@ -186,7 +186,7 @@ public class addCustomer extends javax.swing.JFrame {
                         .addGap(44, 44, 44)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(CNICField, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(contact, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(contactfield, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(namefield, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Quantity, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -221,7 +221,7 @@ public class addCustomer extends javax.swing.JFrame {
                     .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(contact, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(contactfield, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -254,36 +254,36 @@ public class addCustomer extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_QuantityActionPerformed
 
-    private void contactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactActionPerformed
+    private void contactfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactfieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_contactActionPerformed
+    }//GEN-LAST:event_contactfieldActionPerformed
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
         // TODO add your handling code here:
         if(action.equals("Add"))
         {
             customer.setName(namefield.getText());
-            customer.setContact(contact.getText());
+            customer.setContact(contactfield.getText());
             customer.setCNIC(CNICField.getText());
             customer.setSupply(Double.parseDouble(Quantity.getText()));
             customer.setAddress(address.getText());
             DukoFarms.getIsntance().addCustomer(customer);
-            JOptionPane.showConfirmDialog(null, "Customer Added");
+//            JOptionPane.showConfirmDialog(null, "Customer Added");
         }
         else if(action.equals("Update"))
         {
             customer.setName(namefield.getText());
-            customer.setContact(contact.getText());
+            customer.setContact(contactfield.getText());
             customer.setCNIC(CNICField.getText());
             customer.setSupply(Double.parseDouble(Quantity.getText()));
             customer.setAddress(address.getText());
-            DukoFarms.getIsntance().updateCustomer(CNIC, customer);
-            JOptionPane.showConfirmDialog(null, "Customer Update");
+            DukoFarms.getIsntance().updateCustomer(contact, customer);
+//            JOptionPane.showConfirmDialog(null, "Customer Update");
         }
         else if(action.equals("Delete"))
         {
-            DukoFarms.getIsntance().deleteCustomer(CNIC);
-            JOptionPane.showConfirmDialog(null, "Customer Deleted");
+            DukoFarms.getIsntance().deleteCustomer(contact);
+//            JOptionPane.showConfirmDialog(null, "Customer Deleted");
         }
         this.setVisible(false);
     }//GEN-LAST:event_addActionPerformed
@@ -333,7 +333,7 @@ public class addCustomer extends javax.swing.JFrame {
     private javax.swing.JLabel Title;
     private javax.swing.JButton add;
     private javax.swing.JTextArea address;
-    private javax.swing.JTextField contact;
+    private javax.swing.JTextField contactfield;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;

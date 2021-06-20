@@ -5,6 +5,8 @@
  */
 package dukofarms;
 
+import java.util.List;
+
 /**
  *
  * @author DEll
@@ -17,11 +19,14 @@ public class customers extends javax.swing.JPanel {
     public customers() {
         initComponents();
         this.setBackground(new java.awt.Color(150,100,50,75));
-        jRadioButton1.setOpaque(false);
-        jRadioButton2.setOpaque(false);
+        searchByNameRadio.setOpaque(false);
+        searchByCnicRadio.setOpaque(false);
         Clear.setOpaque(false);
         Search.setOpaque(false);
         jTable3.setOpaque(false);
+        searchByName.setEnabled(false);
+        searchByCnicRadio.setEnabled(false);
+        jtablemodelCustomers t = new jtablemodelCustomers(DukoFarms.getIsntance().getAllCustomers());
     }
 
     /**
@@ -33,10 +38,10 @@ public class customers extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jTextField1 = new javax.swing.JTextField();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jTextField2 = new javax.swing.JTextField();
+        searchByNameRadio = new javax.swing.JRadioButton();
+        searchByName = new javax.swing.JTextField();
+        searchByCnicRadio = new javax.swing.JRadioButton();
+        searchByCnic = new javax.swing.JTextField();
         Clear = new javax.swing.JButton();
         add = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -45,34 +50,44 @@ public class customers extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(520, 410));
 
-        jRadioButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jRadioButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton1.setText("Search by name");
-        jRadioButton1.setToolTipText("");
-        jRadioButton1.setBorder(null);
-        jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
+        searchByNameRadio.setBackground(new java.awt.Color(255, 255, 255));
+        searchByNameRadio.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        searchByNameRadio.setForeground(new java.awt.Color(255, 255, 255));
+        searchByNameRadio.setText("Search by name");
+        searchByNameRadio.setToolTipText("");
+        searchByNameRadio.setBorder(null);
+        searchByNameRadio.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                searchByNameRadioItemStateChanged(evt);
+            }
+        });
+        searchByNameRadio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton1ActionPerformed(evt);
+                searchByNameRadioActionPerformed(evt);
             }
         });
 
-        jTextField1.setBackground(new java.awt.Color(150, 100, 50));
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        searchByName.setBackground(new java.awt.Color(150, 100, 50));
+        searchByName.setForeground(new java.awt.Color(255, 255, 255));
+        searchByName.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jRadioButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jRadioButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jRadioButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jRadioButton2.setText("Search by contact");
-        jRadioButton2.setBorder(null);
+        searchByCnicRadio.setBackground(new java.awt.Color(255, 255, 255));
+        searchByCnicRadio.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        searchByCnicRadio.setForeground(new java.awt.Color(255, 255, 255));
+        searchByCnicRadio.setText("Search by CNIC");
+        searchByCnicRadio.setBorder(null);
+        searchByCnicRadio.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                searchByCnicRadioItemStateChanged(evt);
+            }
+        });
 
-        jTextField2.setBackground(new java.awt.Color(150, 100, 50));
-        jTextField2.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        searchByCnic.setBackground(new java.awt.Color(150, 100, 50));
+        searchByCnic.setForeground(new java.awt.Color(255, 255, 255));
+        searchByCnic.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        searchByCnic.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                searchByCnicActionPerformed(evt);
             }
         });
 
@@ -81,6 +96,11 @@ public class customers extends javax.swing.JPanel {
         Clear.setForeground(new java.awt.Color(255, 255, 255));
         Clear.setText(" Clear filters ");
         Clear.setBorder(null);
+        Clear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClearActionPerformed(evt);
+            }
+        });
 
         add.setBackground(new java.awt.Color(150, 100, 50));
         add.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
@@ -122,6 +142,11 @@ public class customers extends javax.swing.JPanel {
         Search.setBackground(new java.awt.Color(150, 100, 50));
         Search.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/WhatsApp Image 2021-05-23 at 9.09.11 AM.jpeg"))); // NOI18N
         Search.setBorder(null);
+        Search.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -134,16 +159,16 @@ public class customers extends javax.swing.JPanel {
                     .addComponent(add)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton1)
-                            .addComponent(jRadioButton2))
+                            .addComponent(searchByNameRadio)
+                            .addComponent(searchByCnicRadio))
                         .addGap(61, 61, 61)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(Clear)
                                 .addGap(124, 124, 124)
                                 .addComponent(Search))
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(searchByName)
+                            .addComponent(searchByCnic, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(49, 49, 49))
         );
         layout.setVerticalGroup(
@@ -153,12 +178,12 @@ public class customers extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadioButton1, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(searchByName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(searchByNameRadio, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(14, 14, 14)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jRadioButton2)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(searchByCnicRadio)
+                            .addComponent(searchByCnic, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(Search))
                     .addComponent(Clear))
@@ -169,13 +194,13 @@ public class customers extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
+    private void searchByNameRadioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchByNameRadioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton1ActionPerformed
+    }//GEN-LAST:event_searchByNameRadioActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void searchByCnicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchByCnicActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_searchByCnicActionPerformed
 
     private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
         // TODO add your handling code here:
@@ -183,16 +208,60 @@ public class customers extends javax.swing.JPanel {
         ac.setVisible(true);
     }//GEN-LAST:event_addActionPerformed
 
+    private void searchByNameRadioItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_searchByNameRadioItemStateChanged
+        // TODO add your handling code here:
+        if(searchByNameRadio.isSelected())
+        {
+            searchByCnic.setText("");
+            searchByName.setEnabled(true);
+            searchByCnic.setEnabled(false);
+        }
+    }//GEN-LAST:event_searchByNameRadioItemStateChanged
+
+    private void searchByCnicRadioItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_searchByCnicRadioItemStateChanged
+        // TODO add your handling code here:
+        if(searchByCnicRadio.isSelected())
+        {    
+            searchByName.setText("");
+            searchByName.setEnabled(false);
+            searchByCnic.setEnabled(true);
+        }
+    }//GEN-LAST:event_searchByCnicRadioItemStateChanged
+
+    private void ClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearActionPerformed
+        // TODO add your handling code here:
+        searchByCnic.setEnabled(false);
+        searchByName.setEnabled(false);
+        searchByCnicRadio.setSelected(false);
+        searchByNameRadio.setSelected(false);
+        
+        jTable3.setModel(new jtablemodelCustomers(DukoFarms.getIsntance().getAllCustomers()));
+    }//GEN-LAST:event_ClearActionPerformed
+
+    private void SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchActionPerformed
+        // TODO add your handling code here:
+        List<Customer> searched = null;
+        if(searchByNameRadio.isSelected())
+        {
+            searched = DukoFarms.getIsntance().searchBasedOnName(searchByName.getText());
+        }
+        else if(searchByCnicRadio.isSelected())
+        {
+            searched = DukoFarms.getIsntance().searchBasedOnCNIC(searchByCnic.getText());
+        }
+        jTable3.setModel(new jtablemodelCustomers(DukoFarms.getIsntance().getAllCustomers()));
+    }//GEN-LAST:event_SearchActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Clear;
     private javax.swing.JButton Search;
     private javax.swing.JButton add;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField searchByCnic;
+    private javax.swing.JRadioButton searchByCnicRadio;
+    private javax.swing.JTextField searchByName;
+    private javax.swing.JRadioButton searchByNameRadio;
     // End of variables declaration//GEN-END:variables
 }

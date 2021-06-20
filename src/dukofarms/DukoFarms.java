@@ -42,12 +42,12 @@ private static DukoFarms instance;
      public void addCustomer(Customer cus){
         listcustomer.add(cus);
     }
-     private int searchCustomer(String CNIC )
+     private int searchCustomer(String contact )
     {
         int index = -1;
          for(int i = 0 ; i  < listcustomer.size(); i++)
          {
-             if(listcustomer.get(i).getContact().equals(CNIC))
+             if(listcustomer.get(i).getContact().equals(contact))
              {
                  index = i;
                  break;
@@ -57,13 +57,13 @@ private static DukoFarms instance;
         return index;
     }
  
-     public Customer getCustomer(String cnic)
+     public Customer getCustomer(String contact)
     {
-        int index = searchCustomer(cnic);
+        int index = searchCustomer(contact);
         return listcustomer.get(index);
     }
-          public boolean updateCustomer(String CNIC ,Customer custo){
-       int index = searchCustomer(CNIC);
+          public boolean updateCustomer(String contact ,Customer custo){
+       int index = searchCustomer(contact);
        
        if(index == -1)
            return false;
@@ -72,8 +72,8 @@ private static DukoFarms instance;
            return true;
        }
     }
-            public boolean deleteCustomer(String CNIC){
-       int index = searchCustomer(CNIC);
+            public boolean deleteCustomer(String contact){
+       int index = searchCustomer(contact);
        
        if(index == -1)
            return false;
@@ -112,12 +112,12 @@ private static DukoFarms instance;
          public void addEmployee(Employee emp){
         listemployee.add(emp);
     }
-     private int searchEmployee(String CNIC)
+     private int searchEmployee(String contact)
     {
         int index = -1;
          for(int i = 0 ; i  < listemployee.size(); i++)
          {
-             if(listemployee.get(i).getCNIC().equals(CNIC))
+             if(listemployee.get(i).getContact().equals(contact))
              {
                  index = i;
                  break;
@@ -126,13 +126,13 @@ private static DukoFarms instance;
          
         return index;
     }
-      public Employee getEmployee(String cnic)
+      public Employee getEmployee(String contact)
     {
-        int index = searchEmployee(cnic);
+        int index = searchEmployee(contact);
         return listemployee.get(index);
     }
-          public boolean updateEmployee(String CNIC ,Employee empl){
-       int index = searchEmployee(CNIC);
+          public boolean updateEmployee(String contact ,Employee empl){
+       int index = searchEmployee(contact);
        
        if(index == -1)
            return false;
@@ -141,8 +141,8 @@ private static DukoFarms instance;
            return true;
        }
     }
-           public boolean deleteEmployee(String CNIC){
-       int index = searchEmployee(CNIC);
+           public boolean deleteEmployee(String contact){
+       int index = searchEmployee(contact);
        
        if(index == -1)
            return false;

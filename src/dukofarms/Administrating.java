@@ -9,9 +9,23 @@ package dukofarms;
  *
  * @author G3NZ
  */
-public class Administrating extends Person{
+public class Administrating extends Person {
+
+    private static Administrating instance;
     private String email = "ahmadrao17@gmail.com";
-    private String password;
+    private String password = "admin";
+    private String username;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public static Administrating getIsntance() {
+        if (instance == null) {
+            instance = new Administrating();
+        }
+        return instance;
+    }
 
     public String getEmail() {
         return email;
@@ -21,81 +35,54 @@ public class Administrating extends Person{
         return password;
     }
 
+    public boolean validatePass(String password) {
+        boolean flag = true;
+        for (int i = 0; i < password.length(); i++) {
+            if (password.charAt(i) >= 'a' && password.charAt(i) <= 'z' || password.charAt(i) >= 'A' && password.charAt(i) <= 'Z' || password.charAt(i) >= '0' && password.charAt(i) <= '9') {
+
+            } else {
+                flag = false;
+            }
+        }
+        return flag;
+    }
+
     public void setPassword(String password) {
-        boolean flag=true;
-        for(int i=0;i<password.length();i++)
-        {
-            if(password.charAt(i)>='a' && password.charAt(i)<='z' || password.charAt(i)>='A' && password.charAt(i)<='Z'  || password.charAt(i)>='0'  && password.charAt(i)<='9')
-            {
-                
-            }
-            else{
-                flag=false;
-            }
-        }
-        if(flag)
-        {
-             this.password = password;
-        }
-       
+
+        this.password = password;
     }
 
     public String getUsername() {
         return username;
     }
 
+    public boolean validateUsername(String username) {
+        boolean flag = true;
+        for (int i = 0; i < username.length(); i++) {
+            if (username.charAt(i) >= 'a' && username.charAt(i) <= 'z' || username.charAt(i) >= 'A' && username.charAt(i) <= 'Z' || username.charAt(i) == ' ') {
+
+            } else {
+                flag = false;
+            }
+
+        }
+        return flag;
+    }
+
     public void setUsername(String username) {
-         boolean flag =true;
-    for(int i=0;i<username.length();i++)
-    {
-      if(username.charAt(i)>='a'  && username.charAt(i)<='z'   || username.charAt(i)>='A'  && username.charAt(i)<='Z'  || username.charAt(i)==' ' )
-      {
-        
-      }
-      else
-      {
-        flag=false;
-      }
-      
-    }
-    if(flag)
-    {
-       this.username = username;
-    }
-        
+            this.username = username;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-    boolean flag =true;
-    for(int i=0;i<name.length();i++)
-    {
-      if(name.charAt(i)>='a'  && name.charAt(i)<='z'   || name.charAt(i)>='A'  && name.charAt(i)<='Z'  || name.charAt(i)==' ' )
-      {
-        
-      }
-      else
-      {
-        flag=false;
-      }
-      
-    }
-    if(flag)
-    {
-        this.name = name;
-    }
-        
-    }
-
     public String getCNIC() {
         return CNIC;
     }
-
-    public void setCNIC(String CNIC) {
-        int size = CNIC.length();
+public boolean validateCnic(String CNIC)
+{
+    int size = CNIC.length();
         boolean flag = true;
         if (size == 15) {
 
@@ -127,11 +114,11 @@ public class Administrating extends Person{
         } else {
             flag = false;
         }
-        if(flag)
-        {
-             this.CNIC = CNIC;
-        }
+        return flag;
+}
+    public void setCNIC(String CNIC) {
+        
+            this.CNIC = CNIC;
     }
-    private String username;
-    
+
 }

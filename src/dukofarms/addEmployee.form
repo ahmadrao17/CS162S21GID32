@@ -70,7 +70,7 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="Cnic" min="-2" pref="233" max="-2" attributes="0"/>
                                       <Component id="salary" min="-2" pref="233" max="-2" attributes="0"/>
-                                      <Component id="contact" alignment="0" min="-2" pref="233" max="-2" attributes="0"/>
+                                      <Component id="contactfield" alignment="0" min="-2" pref="233" max="-2" attributes="0"/>
                                       <Component id="Designation" alignment="0" min="-2" pref="233" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -117,7 +117,7 @@
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="contact" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
+                      <Component id="contactfield" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
                       <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -271,7 +271,7 @@
             <Property name="text" type="java.lang.String" value="Contact"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="contact">
+        <Component class="javax.swing.JTextField" name="contactfield">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="32" green="64" red="96" type="rgb"/>
@@ -286,7 +286,7 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="contactActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="contactfieldActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">

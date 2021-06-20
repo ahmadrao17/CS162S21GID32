@@ -18,13 +18,14 @@ public class addEmployee extends javax.swing.JFrame {
      */
     private Employee employee;
     private String action;
-    private String cnic;
+    private String contact;
     public addEmployee() {
         initComponents();
     }
-    public addEmployee(String cnic,String Action) {
+    public addEmployee(String contact,String Action) {
         initComponents();
         this.action = Action;
+        this.contact = contact;
         if(Action.equals("Add"))
         {
             this.employee = new Employee();
@@ -33,11 +34,11 @@ public class addEmployee extends javax.swing.JFrame {
         else if(Action.equals("Update"))
         {
             title.setText("Edit Employee");
-            employee = DukoFarms.getIsntance().getEmployee(cnic);
+            employee = DukoFarms.getIsntance().getEmployee(contact);
             name.setText(employee.getName());
             Address.setText(employee.getAddress());
-            contact.setText(employee.getContact());
-            Cnic.setText(cnic);
+            contactfield.setText(contact);
+            Cnic.setText(employee.getCNIC());
             salary.setText("" + employee.getSalary());
             Designation.setText(employee.getDesignation());
             add.setText("Update");
@@ -47,16 +48,16 @@ public class addEmployee extends javax.swing.JFrame {
         else if(Action.equals("Delete"))
         {
             title.setText("Delete Employee");
-            employee = DukoFarms.getIsntance().getEmployee(cnic);
+            employee = DukoFarms.getIsntance().getEmployee(contact);
             name.setText(employee.getName());
             Address.setText(employee.getAddress());
-            contact.setText(employee.getContact());
-            Cnic.setText(cnic);
+            contactfield.setText(employee.getContact());
+            Cnic.setText(employee.getCNIC());
             salary.setText("" + employee.getSalary());
             Designation.setText(employee.getDesignation());
             name.setEnabled(false);
             Address.setEnabled(false);
-            contact.setEnabled(false);
+            contactfield.setEnabled(false);
             Cnic.setEnabled(false);
             salary.setEnabled(false);
             Designation.setEnabled(false);
@@ -87,7 +88,7 @@ public class addEmployee extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         Address = new javax.swing.JTextArea();
         jLabel6 = new javax.swing.JLabel();
-        contact = new javax.swing.JTextField();
+        contactfield = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         salary = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -152,12 +153,12 @@ public class addEmployee extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Contact");
 
-        contact.setBackground(new java.awt.Color(150, 100, 50));
-        contact.setForeground(new java.awt.Color(255, 255, 255));
-        contact.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        contact.addActionListener(new java.awt.event.ActionListener() {
+        contactfield.setBackground(new java.awt.Color(150, 100, 50));
+        contactfield.setForeground(new java.awt.Color(255, 255, 255));
+        contactfield.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        contactfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contactActionPerformed(evt);
+                contactfieldActionPerformed(evt);
             }
         });
 
@@ -214,7 +215,7 @@ public class addEmployee extends javax.swing.JFrame {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Cnic, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(salary, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(contact, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(contactfield, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(Designation, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(125, 125, 125)
@@ -247,7 +248,7 @@ public class addEmployee extends javax.swing.JFrame {
                     .addComponent(jLabel5))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(contact, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(contactfield, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -284,9 +285,9 @@ public class addEmployee extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_DesignationActionPerformed
 
-    private void contactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactActionPerformed
+    private void contactfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contactfieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_contactActionPerformed
+    }//GEN-LAST:event_contactfieldActionPerformed
 
     private void salaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salaryActionPerformed
         // TODO add your handling code here:
@@ -301,7 +302,7 @@ public class addEmployee extends javax.swing.JFrame {
         if(action.equals("Add"))
         {
             employee.setName(name.getText());
-            employee.setContact(contact.getText());
+            employee.setContact(contactfield.getText());
             employee.setCNIC(Cnic.getText());
             employee.setSalary(Integer.parseInt(salary.getText()));
             employee.setAddress(Address.getText());
@@ -312,17 +313,17 @@ public class addEmployee extends javax.swing.JFrame {
         else if(action.equals("Update"))
         {
             employee.setName(name.getText());
-            employee.setContact(contact.getText());
+            employee.setContact(contactfield.getText());
             employee.setCNIC(Cnic.getText());
             employee.setSalary(Integer.parseInt(salary.getText()));
             employee.setAddress(Address.getText());
             employee.setDesignation(Designation.getText());
-            DukoFarms.getIsntance().updateEmployee(cnic, employee);
+            DukoFarms.getIsntance().updateEmployee(contact, employee);
             JOptionPane.showConfirmDialog(null, "Employee Updated");
         }
         else if(action.equals("Delete"))
         {
-            DukoFarms.getIsntance().deleteEmployee(cnic);
+            DukoFarms.getIsntance().deleteEmployee(contact);
             JOptionPane.showConfirmDialog(null, "Employee Deleted");    
         }
         this.setVisible(false);
@@ -368,7 +369,7 @@ public class addEmployee extends javax.swing.JFrame {
     private javax.swing.JTextField Cnic;
     private javax.swing.JTextField Designation;
     private javax.swing.JButton add;
-    private javax.swing.JTextField contact;
+    private javax.swing.JTextField contactfield;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;

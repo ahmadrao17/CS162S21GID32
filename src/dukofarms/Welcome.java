@@ -30,7 +30,6 @@ public class Welcome extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    Administrating a = new Administrating();
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -71,6 +70,7 @@ public class Welcome extends javax.swing.JFrame {
         changePass.setOpaque(false);
         caps.setOpaque(false);
         capscheck();
+        Administrating.getIsntance().setName("Ahmad");
     }
 
     public void capscheck()
@@ -209,6 +209,11 @@ public class Welcome extends javax.swing.JFrame {
         changePass.setBackground(new java.awt.Color(150, 100, 50));
         changePass.setText(" Change Password ");
         changePass.setBorder(null);
+        changePass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                changePassActionPerformed(evt);
+            }
+        });
 
         caps.setBackground(new java.awt.Color(255, 255, 255));
         caps.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
@@ -395,9 +400,9 @@ public class Welcome extends javax.swing.JFrame {
 
     private void forgetPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forgetPassActionPerformed
         // TODO add your handling code here:
-        String from = "dukofarms55@gmail.com";
-        String to = a.getEmail();
-        String host = "localhost";
+        String from = "dukofarms5@gmail.com";
+        String to = Administrating.getIsntance().getEmail();
+//        String host = "localhost";
         String sub = "Forget Password";
         Random rand = new Random();
         int n1 = rand.nextInt(9);
@@ -405,7 +410,7 @@ public class Welcome extends javax.swing.JFrame {
         int n3 = rand.nextInt(9);
         int n4 = rand.nextInt(9);
         String code = Integer.toString(n1) + Integer.toString(n2) + Integer.toString(n3) + Integer.toString(n4);
-        String content = "Hi, "+a.getName()+"\n"+"The verification code to access your account is \n\n"+code+"\n\nDO NO FORWARD THIS CODE TO ANYONE";
+        String content = "Hi, "+Administrating.getIsntance().getName()+"\n"+"The verification code to access your account is \n\n"+code+"\n\nDO NOT FORWARD THIS CODE TO ANYONE";
 //        
         Properties props = new Properties();
         props.put("mail.smtp.auth", true);
@@ -435,7 +440,15 @@ public class Welcome extends javax.swing.JFrame {
         } catch (MessagingException e) {
             System.out.println(e);
         }
+        ForgetPass  fp = new ForgetPass(code,"Forget");
+        fp.setVisible(true);
     }//GEN-LAST:event_forgetPassActionPerformed
+
+    private void changePassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changePassActionPerformed
+        // TODO add your handling code here:
+        ForgetPass  fp = new ForgetPass(null,"Change");
+        fp.setVisible(true);
+    }//GEN-LAST:event_changePassActionPerformed
 
     
 

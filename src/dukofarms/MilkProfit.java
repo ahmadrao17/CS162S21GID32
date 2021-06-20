@@ -21,6 +21,7 @@ public class MilkProfit implements Profit
     public void setSale(Integer sale) {
         this.sale = sale;
     }
+    @Override
     public Integer profit() {
         
         Integer profit = purchase - sale;
