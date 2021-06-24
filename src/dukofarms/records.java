@@ -90,6 +90,11 @@ public class records extends javax.swing.JPanel {
         add.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/baseline_help_outline_black_24dp.png"))); // NOI18N
         add.setText("Calculate Profit");
         add.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        add.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addActionPerformed(evt);
+            }
+        });
 
         jTextField4.setBackground(new java.awt.Color(150, 100, 50));
         jTextField4.setForeground(new java.awt.Color(255, 255, 255));
@@ -296,6 +301,10 @@ public class records extends javax.swing.JPanel {
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void addActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
