@@ -56,8 +56,6 @@ public class ForgetPass extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
         jPasswordField3 = new javax.swing.JPasswordField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         jPanel1.setBackground(new java.awt.Color(150, 100, 50));
 
         codeLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
